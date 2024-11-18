@@ -14,10 +14,6 @@ Transactie::~Transactie()
 {
 }
 
-Transactie::Transactie(const Transactie& other)
-{
-}
-
 std::string Transactie::GetType()
 {
 	return type;

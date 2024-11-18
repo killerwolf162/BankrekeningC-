@@ -15,11 +15,9 @@ Bankrekening::Bankrekening(const Bankrekening& other)
 {
 }
 
-std::list<Transactie> Bankrekening::AddTransactionToList(Transactie& transactie) // data in transactie wordt nu niet meegenomen binnen de lijst
+std::list<Transactie> Bankrekening::AddTransactionToList(Transactie& transactie)
 {
-	std::cout << "Amount before added to list: " << transactie.GetAmount() << std::endl;
 	transactionList.push_back(transactie);
-	std::cout << "Amount after added to list: " << transactionList.front().GetAmount() << std::endl;
 	return transactionList;
 }
 
@@ -47,12 +45,9 @@ Bankrekening Bankrekening::operator-(Transactie& transactie)
 
 std::ostream& operator<<(std::ostream& os, Bankrekening& account) 
 {
-	os << "saldo: " << account.GetSaldo()
-		<< " , "
-		<< "amount of transactions: " << account.transactionList.size()
-		<< std::endl;
+	int listStartSize = account.transactionList.size();
 
-	for (int i = 0; i < account.transactionList.size(); i++)
+	for (int i = 0; i < listStartSize; i++)
 	{
 		os << "Soort: " << account.transactionList.front().GetType() << " , "
 			<< "Hoeveelheid: " << account.transactionList.front().GetAmount() << " , "
@@ -62,7 +57,13 @@ std::ostream& operator<<(std::ostream& os, Bankrekening& account)
 				os << date << "/";
 			}
 			os << std::endl;
+			account.transactionList.pop_front();
 	}
+
+	os << "eind saldo: " << account.GetSaldo()
+		<< " , "
+		<< "amount of transactions: " << listStartSize
+		<< std::endl;
 
 
 		return os;

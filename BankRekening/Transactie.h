@@ -9,7 +9,6 @@ public:
 
 	Transactie(int hoeveelheid, int dag, int maand, int jaar);
 	~Transactie();
-	Transactie(const Transactie& other);
 	std::string GetType();
 	int GetAmount() const;
 	std::list<int> GetDatum();
