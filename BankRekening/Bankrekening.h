@@ -13,7 +13,7 @@ public:
 
 	int GetSaldo();
 	std::list<Transactie> AddTransactionToList(Transactie& transactie);
-	std::list<Transactie> GetTransactieList();
+	std::list<Transactie> GetTransactionList();
 
 	Bankrekening operator+(Transactie& transactie);
 	Bankrekening operator-(Transactie& transactie) ;
@@ -22,7 +22,7 @@ public:
 
 private:
 	int saldo = 0;
-	std::list<Transactie> transactieList;
+	std::list<Transactie> transactionList;
 
 };
 
