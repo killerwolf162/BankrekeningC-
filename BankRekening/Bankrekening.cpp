@@ -60,9 +60,10 @@ std::ostream& operator<<(std::ostream& os, Bankrekening& account)
 			account.transactionList.pop_front();
 	}
 
-	os << "eind saldo: " << account.GetSaldo()
+	os << std::endl
+		<<"eind saldo: " << account.GetSaldo()
 		<< " , "
-		<< "amount of transactions: " << listStartSize
+		<< "aantal transactions: " << listStartSize
 		<< std::endl;
 
 
